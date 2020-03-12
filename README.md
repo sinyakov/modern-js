@@ -1,4 +1,4 @@
-# Общий план
+# I. Современный Javascript
 
 ## 1. Вводная
 
@@ -77,3 +77,13 @@
 - фибоначчи [58a5d9aaa49f6cd0f9000ad7]
 - for x of 56..123
 - асинк-авейт на генераторах
+
+# II. Прикладной Javascript
+
+## 6. Backend. HTTP, Node.js, Express
+
+## 7. Backend. Buffer, Stream
+
+## 8. Frontend. React
+
+## 9. Frontend. Redux
