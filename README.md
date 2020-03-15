@@ -1,28 +1,6 @@
 # I. Современный Javascript
 
-## 1. Вводная
-
-- История, браузер, нода
-- Импорты/экспорты
-- Тесты
-- Объявление переменных и функций
-- Типы значений
-- Строки
-- Массивы, объекты
-- Перебирающие методы массивов
-
-### Примеры
-- [is-every-value-in-the-array-an-array]
-- [abbreviate-a-two-word-name]
-
-### Домашнее задание
-1. Однородный массив [homogenous-arrays]
-1. Кастомная интерполяция строк [529b54d9aba78c924d00088e]
-1. Сортировка только нечетных [578aa45ee9fd15ff4600090d]
-1. Бинарный поиск [5b7176768adeae9bc9000056]
-1. Задача на мутацию [coding-meetup-number-2-higher-order-functions-series-greet-developers]
-1. Рекурсия [determine-sizeof-c-datatype-beginner-no-prior-c-knowledge-required]
-
+## 1. Основы
 
 ## 2. Функции
 
