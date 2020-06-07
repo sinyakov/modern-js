@@ -51,15 +51,15 @@ const doSomethingElse = () => new Promise(r => setTimeout(r, 2000, 'second'));
 
 doSomething().then(function () {
   return doSomethingElse();
-});
+}).then(console.log);
 
 doSomething().then(function () {
   doSomethingElse();
-});
+}).then(console.log);
 
-doSomething().then(doSomethingElse());
+doSomething().then(doSomethingElse()).then(console.log);
 
-doSomething().then(doSomethingElse);
+doSomething().then(doSomethingElse).then(console.log);
 ```
 ### Демо 3
 
