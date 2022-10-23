@@ -55,3 +55,63 @@ function sum(a, b) {
 ```                
                               
 Если ее запустить 10_000 раз, то примерно 7_600 будут успешными, а 2_400 неуспешными.
+
+## promisify
+
+## folder
+
+Три реализации: callback / promises / async-await
+
+##  polyfills
+
+- Promise.all()
+- Promise.allSettled()
+- Promise.any()
+- Promise.race()
+- Promise.reject()
+- Promise.resolve()
+- Promise.prototype.catch()
+
+## delay
+
+```js
+const plus1 = x => new Promise(r => setTimeout(r, 1000, x + 1))
+const plus2 = x => new Promise(r => setTimeout(r, 2000, x + 2))
+const plus3 = x => new Promise(r => setTimeout(r, 3000, x + 3))
+const plus4 = x => new Promise(r => setTimeout(r, 4000, x + 4))
+const plus5 = x => new Promise(r => setTimeout(r, 5000, x + 5))
+
+Promise.resolve(0)
+  .then(plus1)
+  .then(plus2)
+  .then(plus3)
+  .then(plus4)
+  .then(plus5)
+  .then(console.log) // число 15 через 15 секунд
+```
+
+Написать функцию delay:
+
+```js
+Promise.resolve(0)
+  .then(plus1)
+  .then(plus2)
+  .then(plus3)
+  .then(delay(7000))
+  .then(plus4)
+  .then(plus5)
+  .then(console.log) // число 15 через 22 секунд
+```
+
+## async pipeline
+
+```js
+const mult3 = x => f(x * 3, 500);
+const devide5 = x => f(x / 5, 1500);
+const square = x => f(x ** 2, 2000);
+
+doAsyncPipeline([mult3, devide5, square], 10).then(x => {
+   console.log(x); // 36
+});
+
+```
