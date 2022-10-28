@@ -56,9 +56,81 @@ function sum(a, b) {
                               
 Если ее запустить 10_000 раз, то примерно 7_600 будут успешными, а 2_400 неуспешными.
 
-## promisify
+## promisify/callbackify
+
+```js
+async function fn() {
+  return 'hello world';
+}
+const callbackFunction = callbackify(fn);
+
+callbackFunction((err, ret) => {
+  if (err) throw err;
+  console.log(ret);
+});
+```
+
+```js
+const fs = require('fs');
+
+// promisify takes a function following the common error-first callback style,
+// i.e. taking a (err, value) => ... callback as the last argument
+const stat = promisify(fs.stat);
+
+stat('.').then((stats) => {
+  // Do something with `stats`
+}).catch((error) => {
+  // Handle the error.
+});
+```
 
 ## folder
+
+Класс Folder имитирует директорию файловой системы. В директории могут находиться другие директории (объекты класса Folder) или обычные файлы (простые строки). Folder имеет асинхронный интерфейс:
+
+```js
+class Folder {
+  size(callback);
+  read(index, callback);
+}
+
+// количество файлов и директорий внутри f
+f.size((s) => {
+  console.log(s); // 5
+});
+
+// тогда мы можем получить сами эти файлы и директории по индексам
+// если размер 5, то индексы от 0 до 4
+f.read(0, (x) => {
+  console.log(x); // "file"
+});
+```
+
+Нужно написать функцию, которая вернет массив со всеми файлами со всех уровней.
+
+Допустим директория имеет структуру:
+```
+Folder:
+  - A
+  - Folder:
+    - B
+    - C
+    Folder:
+      -D
+    -E
+  -F
+
+```
+
+```js
+getAllFiles(f, (x) => {
+  console.log(x); // ["A", "B", "C", "D", "E", "F"]
+});
+
+getAllFiles(f).then((x) => {
+  console.log(x); // ["A", "B", "C", "D", "E", "F"]
+});
+```
 
 Три реализации: callback / promises / async-await
 
